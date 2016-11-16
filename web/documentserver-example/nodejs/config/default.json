@@ -29,7 +29,16 @@
         "name": "/public",
         "path": "public"
       }
-    ]
+    ],
+	"token": {
+		"enable": true,
+		"useforrequest": true,
+		"algorithmRequest": "HS256",
+		"authorizationHeader": "OO-AUTH-TOKEN",
+		"authorizationHeaderPrefix": "Bearer ",
+		"secret": "secret",
+		"expiresIn": "5m"
+	}
   },
   "plugins": {
     "url": "../../../../sdkjs-plugins/",
