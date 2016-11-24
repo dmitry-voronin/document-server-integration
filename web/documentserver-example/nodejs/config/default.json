@@ -34,7 +34,7 @@
 		"enable": true,
 		"useforrequest": true,
 		"algorithmRequest": "HS256",
-		"authorizationHeader": "OO-AUTH-TOKEN",
+		"authorizationHeader": "Authorization",
 		"authorizationHeaderPrefix": "Bearer ",
 		"secret": "secret",
 		"expiresIn": "5m"

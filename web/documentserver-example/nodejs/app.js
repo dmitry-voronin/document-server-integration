@@ -393,9 +393,17 @@ app.post("/track", function (req, res) {
     if (cfgSignatureEnable && cfgSignatureUseForRequest) {
         var checkJwtHeaderRes = documentService.checkJwtHeader(req);
         if (checkJwtHeaderRes) {
-            body = checkJwtHeaderRes.payload;
-            userAddress = checkJwtHeaderRes.query.useraddress;
-            fileName = fileUtility.getFileName(checkJwtHeaderRes.query.filename);
+            if (checkJwtHeaderRes.payload) {
+                body = checkJwtHeaderRes.payload;
+            }
+            if (checkJwtHeaderRes.query) {
+                if (checkJwtHeaderRes.query.useraddress) {
+                    userAddress = checkJwtHeaderRes.query.useraddress;
+                }
+                if (checkJwtHeaderRes.query.filename) {
+                    fileName = fileUtility.getFileName(checkJwtHeaderRes.query.filename);
+                }
+            }
             processTrack(res, body, fileName, userAddress);
         } else {
             res.write("{\"error\":1}");
